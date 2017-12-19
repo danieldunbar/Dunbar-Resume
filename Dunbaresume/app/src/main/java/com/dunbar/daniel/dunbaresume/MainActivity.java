@@ -2,13 +2,9 @@ package com.dunbar.daniel.dunbaresume;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,10 +15,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dunbar.daniel.dunbaresume.Fragments.ContactFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.CoursesFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.EducationFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.HomeFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.ProjectFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.SkillsFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.WorkFragment;
+import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        HomeFragment.OnFragmentInteractionListener,
+        EducationFragment.OnListFragmentInteractionListener,
+        WorkFragment.OnListFragmentInteractionListener,
+        ProjectFragment.OnListFragmentInteractionListener,
+        SkillsFragment.OnListFragmentInteractionListener,
+        CoursesFragment.OnListFragmentInteractionListener,
+        ContactFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,18 +90,22 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
-            Toast.makeText(this.getBaseContext(), "Home selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_education) {
-            Toast.makeText(this.getBaseContext(), "Education selected", Toast.LENGTH_SHORT).show();
+            fragment = new EducationFragment();
         } else if (id == R.id.nav_work) {
+            fragment = new WorkFragment();
             Toast.makeText(this.getBaseContext(), "Work selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_projects) {
+            fragment = new ProjectFragment();
             Toast.makeText(this.getBaseContext(), "Projects selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_skills) {
+            fragment = new SkillsFragment();
             Toast.makeText(this.getBaseContext(), "Skills selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_courses) {
+            fragment = new CoursesFragment();
             Toast.makeText(this.getBaseContext(), "Courses selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_contact) {
+            fragment = new ContactFragment();
             Toast.makeText(this.getBaseContext(), "Contact selected", Toast.LENGTH_SHORT).show();
         }
 
@@ -99,7 +113,6 @@ public class MainActivity extends AppCompatActivity
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(null);
             transaction.commit();
         }
 
@@ -110,6 +123,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
     }
 }
