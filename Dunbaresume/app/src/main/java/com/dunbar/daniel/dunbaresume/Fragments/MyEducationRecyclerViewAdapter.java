@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dunbar.daniel.dunbaresume.Data.EducationData;
 import com.dunbar.daniel.dunbaresume.Fragments.EducationFragment.OnListFragmentInteractionListener;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 import com.dunbar.daniel.dunbaresume.R;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class MyEducationRecyclerViewAdapter extends RecyclerView.Adapter<MyEducationRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<EducationData.EducationItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyEducationRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyEducationRecyclerViewAdapter(List<EducationData.EducationItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,9 +37,10 @@ public class MyEducationRecyclerViewAdapter extends RecyclerView.Adapter<MyEduca
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        EducationData.EducationItem item = mValues.get(position);
+        holder.mItem = item;
+        holder.mIdView.setText(item.getUniversity());
+        holder.mContentView.setText(item.getDegree() + ": " + item.getMajor());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +63,7 @@ public class MyEducationRecyclerViewAdapter extends RecyclerView.Adapter<MyEduca
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public EducationData.EducationItem mItem;
 
         public ViewHolder(View view) {
             super(view);
