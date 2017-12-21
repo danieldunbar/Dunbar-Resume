@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dunbar.daniel.dunbaresume.Data.WorkData;
 import com.dunbar.daniel.dunbaresume.Fragments.WorkFragment.OnListFragmentInteractionListener;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 import com.dunbar.daniel.dunbaresume.R;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class MyWorkRecyclerViewAdapter extends RecyclerView.Adapter<MyWorkRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<WorkData.WorkItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyWorkRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyWorkRecyclerViewAdapter(List<WorkData.WorkItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +38,8 @@ public class MyWorkRecyclerViewAdapter extends RecyclerView.Adapter<MyWorkRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getCompany());
+        holder.mContentView.setText(mValues.get(position).getPosition());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MyWorkRecyclerViewAdapter extends RecyclerView.Adapter<MyWorkRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public WorkData.WorkItem mItem;
 
         public ViewHolder(View view) {
             super(view);

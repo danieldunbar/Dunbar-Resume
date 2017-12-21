@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dunbar.daniel.dunbaresume.Data.WorkData;
 import com.dunbar.daniel.dunbaresume.R;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
@@ -70,7 +71,7 @@ public class WorkFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyWorkRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyWorkRecyclerViewAdapter(WorkData.DATA, mListener));
         }
         return view;
     }
@@ -105,6 +106,6 @@ public class WorkFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(WorkData.WorkItem item);
     }
 }
