@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
 import com.dunbar.daniel.dunbaresume.Data.SkillsData;
 import com.dunbar.daniel.dunbaresume.Data.WorkData;
@@ -147,5 +148,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(SkillsData.SkillItem item) {
         Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(CoursesData.CourseItem item) {
+        Toast.makeText(this.getBaseContext(), item.getCourseName(), Toast.LENGTH_SHORT).show();
     }
 }

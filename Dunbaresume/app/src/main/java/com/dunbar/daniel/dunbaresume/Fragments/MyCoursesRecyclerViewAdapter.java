@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Fragments.CoursesFragment.OnListFragmentInteractionListener;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 import com.dunbar.daniel.dunbaresume.R;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class MyCoursesRecyclerViewAdapter extends RecyclerView.Adapter<MyCoursesRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<CoursesData.CourseItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyCoursesRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyCoursesRecyclerViewAdapter(List<CoursesData.CourseItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +38,8 @@ public class MyCoursesRecyclerViewAdapter extends RecyclerView.Adapter<MyCourses
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getCourseName());
+        holder.mContentView.setText(mValues.get(position).getDescription());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MyCoursesRecyclerViewAdapter extends RecyclerView.Adapter<MyCourses
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public CoursesData.CourseItem mItem;
 
         public ViewHolder(View view) {
             super(view);
