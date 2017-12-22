@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
+import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
 import com.dunbar.daniel.dunbaresume.Data.SkillsData;
 import com.dunbar.daniel.dunbaresume.Data.WorkData;
 import com.dunbar.daniel.dunbaresume.Fragments.ContactFragment;
@@ -26,7 +27,6 @@ import com.dunbar.daniel.dunbaresume.Fragments.HomeFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.ProjectFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.SkillsFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.WorkFragment;
-import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -98,19 +98,14 @@ public class MainActivity extends AppCompatActivity
             fragment = new EducationFragment();
         } else if (id == R.id.nav_work) {
             fragment = new WorkFragment();
-            Toast.makeText(this.getBaseContext(), "Work selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_projects) {
             fragment = new ProjectFragment();
-            Toast.makeText(this.getBaseContext(), "Projects selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_skills) {
             fragment = new SkillsFragment();
-            Toast.makeText(this.getBaseContext(), "Skills selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_courses) {
             fragment = new CoursesFragment();
-            Toast.makeText(this.getBaseContext(), "Courses selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_contact) {
             fragment = new ContactFragment();
-            Toast.makeText(this.getBaseContext(), "Contact selected", Toast.LENGTH_SHORT).show();
         }
 
         if(fragment != null) {
@@ -127,11 +122,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
     }
 
@@ -153,5 +143,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(CoursesData.CourseItem item) {
         Toast.makeText(this.getBaseContext(), item.getCourseName(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(ProjectsData.ProjectItem item) {
+        Toast.makeText(this.getBaseContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
