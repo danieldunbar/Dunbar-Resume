@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dunbar.daniel.dunbaresume.Data.SkillsData;
 import com.dunbar.daniel.dunbaresume.Fragments.SkillsFragment.OnListFragmentInteractionListener;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 import com.dunbar.daniel.dunbaresume.R;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class MySkillsRecyclerViewAdapter extends RecyclerView.Adapter<MySkillsRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<SkillsData.SkillItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MySkillsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MySkillsRecyclerViewAdapter(List<SkillsData.SkillItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +38,8 @@ public class MySkillsRecyclerViewAdapter extends RecyclerView.Adapter<MySkillsRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getSkill());
+        holder.mContentView.setText(mValues.get(position).getExperience());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MySkillsRecyclerViewAdapter extends RecyclerView.Adapter<MySkillsRe
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public SkillsData.SkillItem mItem;
 
         public ViewHolder(View view) {
             super(view);

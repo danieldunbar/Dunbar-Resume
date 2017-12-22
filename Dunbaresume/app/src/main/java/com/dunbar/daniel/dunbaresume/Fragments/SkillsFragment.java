@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dunbar.daniel.dunbaresume.Data.SkillsData;
 import com.dunbar.daniel.dunbaresume.R;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
@@ -70,7 +71,7 @@ public class SkillsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySkillsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MySkillsRecyclerViewAdapter(SkillsData.DATA, mListener));
         }
         return view;
     }
@@ -105,6 +106,6 @@ public class SkillsFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(SkillsData.SkillItem item);
     }
 }
