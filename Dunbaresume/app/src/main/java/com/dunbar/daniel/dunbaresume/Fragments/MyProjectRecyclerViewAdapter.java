@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
 import com.dunbar.daniel.dunbaresume.Fragments.ProjectFragment.OnListFragmentInteractionListener;
 import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 import com.dunbar.daniel.dunbaresume.R;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class MyProjectRecyclerViewAdapter extends RecyclerView.Adapter<MyProjectRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<ProjectsData.ProjectItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyProjectRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyProjectRecyclerViewAdapter(List<ProjectsData.ProjectItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +38,8 @@ public class MyProjectRecyclerViewAdapter extends RecyclerView.Adapter<MyProject
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getType());
+        holder.mContentView.setText(mValues.get(position).getTitle());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MyProjectRecyclerViewAdapter extends RecyclerView.Adapter<MyProject
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public ProjectsData.ProjectItem mItem;
 
         public ViewHolder(View view) {
             super(view);

@@ -15,7 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
+import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
+import com.dunbar.daniel.dunbaresume.Data.SkillsData;
+import com.dunbar.daniel.dunbaresume.Data.WorkData;
 import com.dunbar.daniel.dunbaresume.Fragments.ContactFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.CoursesFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.EducationFragment;
@@ -23,7 +27,6 @@ import com.dunbar.daniel.dunbaresume.Fragments.HomeFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.ProjectFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.SkillsFragment;
 import com.dunbar.daniel.dunbaresume.Fragments.WorkFragment;
-import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -95,19 +98,14 @@ public class MainActivity extends AppCompatActivity
             fragment = new EducationFragment();
         } else if (id == R.id.nav_work) {
             fragment = new WorkFragment();
-            Toast.makeText(this.getBaseContext(), "Work selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_projects) {
             fragment = new ProjectFragment();
-            Toast.makeText(this.getBaseContext(), "Projects selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_skills) {
             fragment = new SkillsFragment();
-            Toast.makeText(this.getBaseContext(), "Skills selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_courses) {
             fragment = new CoursesFragment();
-            Toast.makeText(this.getBaseContext(), "Courses selected", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_contact) {
             fragment = new ContactFragment();
-            Toast.makeText(this.getBaseContext(), "Contact selected", Toast.LENGTH_SHORT).show();
         }
 
         if(fragment != null) {
@@ -128,12 +126,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
+    public void onListFragmentInteraction(EducationData.EducationItem item) {
+        Toast.makeText(this.getBaseContext(), item.getUniversity(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onListFragmentInteraction(EducationData.EducationItem item) {
-        Toast.makeText(this.getBaseContext(), item.getUniversity(), Toast.LENGTH_SHORT).show();
+    public void onListFragmentInteraction(WorkData.WorkItem item) {
+        Toast.makeText(this.getBaseContext(), item.getCompany(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(SkillsData.SkillItem item) {
+        Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(CoursesData.CourseItem item) {
+        Toast.makeText(this.getBaseContext(), item.getCourseName(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(ProjectsData.ProjectItem item) {
+        Toast.makeText(this.getBaseContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
