@@ -39,7 +39,7 @@ public class MyCoursesRecyclerViewAdapter extends RecyclerView.Adapter<MyCourses
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getCourseName());
-        holder.mContentView.setText(mValues.get(position).getDescription());
+        holder.mContentView.setText("");
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
