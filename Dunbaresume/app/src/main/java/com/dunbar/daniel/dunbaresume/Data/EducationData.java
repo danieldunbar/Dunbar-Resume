@@ -19,7 +19,7 @@ public class EducationData {
         EducationItem ua = new EducationItem("University of Arizona", "Computer Science",
                 "Mathematics", "Bachelor of Science", null, "December 15, 2017", 3.5);
         EducationItem pima = new EducationItem("Pima Community College", "Physics",
-                null, "Associate of Science", null, "May 15, 2015", 3.2);
+                "N/A", "Associate of Science", null, "May 15, 2015", 3.2);
 
         DATA.add(ua);
         DATA.add(pima);

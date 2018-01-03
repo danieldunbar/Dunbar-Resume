@@ -1,5 +1,7 @@
 package com.dunbar.daniel.dunbaresume;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dunbar.daniel.dunbaresume.Activities.CourseActivity;
+import com.dunbar.daniel.dunbaresume.Activities.EducationActivity;
 import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
 import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity
         CoursesFragment.OnListFragmentInteractionListener,
         ContactFragment.OnFragmentInteractionListener{
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity
 
         HomeFragment firstFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
+        setTitle("Home");
     }
 
     @Override
@@ -94,18 +100,25 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
+            setTitle("Home");
         } else if (id == R.id.nav_education) {
             fragment = new EducationFragment();
+            setTitle("Education");
         } else if (id == R.id.nav_work) {
             fragment = new WorkFragment();
+            setTitle("Work Experience");
         } else if (id == R.id.nav_projects) {
             fragment = new ProjectFragment();
+            setTitle("Projects");
         } else if (id == R.id.nav_skills) {
             fragment = new SkillsFragment();
+            setTitle("Skills");
         } else if (id == R.id.nav_courses) {
             fragment = new CoursesFragment();
+            setTitle("Courses");
         } else if (id == R.id.nav_contact) {
             fragment = new ContactFragment();
+            setTitle("Contact Me");
         }
 
         if(fragment != null) {
@@ -127,7 +140,20 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(EducationData.EducationItem item) {
-        Toast.makeText(this.getBaseContext(), item.getUniversity(), Toast.LENGTH_SHORT).show();
+        Context context = MainActivity.this;
+
+        Class destinationActivity = EducationActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("University", item.getUniversity());
+        startChildActivityIntent.putExtra("Major", item.getMajor());
+        startChildActivityIntent.putExtra("Minor", item.getMinor());
+        startChildActivityIntent.putExtra("Degree", item.getDegree());
+        startChildActivityIntent.putExtra("Graduation", item.getGraduationDate());
+        startChildActivityIntent.putExtra("GPA", Double.toString(item.getGpa()));
+
+        startActivity(startChildActivityIntent);
     }
 
     @Override
@@ -142,7 +168,17 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(CoursesData.CourseItem item) {
-        Toast.makeText(this.getBaseContext(), item.getCourseName(), Toast.LENGTH_SHORT).show();
+        Context context = MainActivity.this;
+
+        Class destinationActivity = CourseActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Name", item.getCourseName());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+        startChildActivityIntent.putExtra("Technology", item.getTechnology());
+
+        startActivity(startChildActivityIntent);
     }
 
     @Override
