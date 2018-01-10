@@ -26,7 +26,7 @@ public class ProjectsData {
                         "confirm data deletions. ",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("C#");
         tech.add("SQL");
         DATA.add(new ProjectItem("Automated Data Removal",
@@ -35,7 +35,7 @@ public class ProjectsData {
                         "identify specific tables with outdated/unnecessary information.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("C#");
         tech.add("SQL");
         DATA.add(new ProjectItem("Automated Data Transfer",
@@ -44,7 +44,7 @@ public class ProjectsData {
                         "historical data from the week between two servers with 10,000+ tables each. ",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Android");
         tech.add("Java");
         DATA.add(new ProjectItem("Weather App",
@@ -53,7 +53,7 @@ public class ProjectsData {
                         "display to the user their weather for any given day",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Android");
         tech.add("Java");
         tech.add("AWS");
@@ -64,7 +64,7 @@ public class ProjectsData {
                         "Therapy practices to help people lead emotionally healthier lives.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Android");
         tech.add("Java");
         tech.add("AWS");
@@ -75,7 +75,7 @@ public class ProjectsData {
                         "manage their emotions.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Java");
         DATA.add(new ProjectItem("Risk",
                 "School",
@@ -83,7 +83,7 @@ public class ProjectsData {
                         "the option to play with AIs of varying levels of difficulty.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Java");
         DATA.add(new ProjectItem("Jukebox",
                 "School",

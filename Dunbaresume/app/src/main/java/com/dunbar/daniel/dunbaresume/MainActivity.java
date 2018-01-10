@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.dunbar.daniel.dunbaresume.Activities.CourseActivity;
 import com.dunbar.daniel.dunbaresume.Activities.EducationActivity;
+import com.dunbar.daniel.dunbaresume.Activities.ProjectActivity;
+import com.dunbar.daniel.dunbaresume.Activities.WorkActivity;
 import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
 import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
@@ -158,7 +160,20 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(WorkData.WorkItem item) {
-        Toast.makeText(this.getBaseContext(), item.getCompany(), Toast.LENGTH_SHORT).show();
+        Context context = MainActivity.this;
+
+        Class destinationActivity = WorkActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Company", item.getCompany());
+        startChildActivityIntent.putExtra("Position", item.getPosition());
+        startChildActivityIntent.putExtra("StartDate", item.getStartDate());
+        startChildActivityIntent.putExtra("EndDate", item.getEndDate());
+        startChildActivityIntent.putExtra("Location", item.getLocation());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+
+        startActivity(startChildActivityIntent);
     }
 
     @Override
@@ -183,6 +198,16 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(ProjectsData.ProjectItem item) {
-        Toast.makeText(this.getBaseContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+        Context context = MainActivity.this;
+
+        Class destinationActivity = ProjectActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Title", item.getTitle());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+        startChildActivityIntent.putExtra("Technology", item.getTechnology());
+
+        startActivity(startChildActivityIntent);
     }
 }
