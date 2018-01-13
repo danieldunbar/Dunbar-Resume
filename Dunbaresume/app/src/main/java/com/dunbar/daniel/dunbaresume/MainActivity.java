@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
 
     private String phoneNumber;
     private String[] emailAddress;
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,7 +183,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(SkillsData.SkillItem item) {
-        Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT).show();
+        if(mToast != null){
+            mToast.cancel();
+        }
+
+        mToast = Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT);
+        mToast.show();
     }
 
     @Override
