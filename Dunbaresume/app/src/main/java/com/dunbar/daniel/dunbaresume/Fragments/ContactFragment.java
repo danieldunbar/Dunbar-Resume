@@ -1,12 +1,13 @@
 package com.dunbar.daniel.dunbaresume.Fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.dunbar.daniel.dunbaresume.R;
 
@@ -55,6 +56,7 @@ public class ContactFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -65,13 +67,34 @@ public class ContactFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final Button callbutton = (Button) getView().findViewById(R.id.call_button);
+        callbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onButtonPressed(callbutton);
+            }
+        });
+
+        final Button emailbutton = (Button) getView().findViewById(R.id.email_button);
+        emailbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onButtonPressed(emailbutton);
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(Button button) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(button);
         }
     }
 
@@ -104,6 +127,6 @@ public class ContactFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Button button);
     }
 }

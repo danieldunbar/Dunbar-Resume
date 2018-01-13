@@ -1,14 +1,53 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/text_margin"
+    android:orientation="vertical"
     tools:context="com.dunbar.daniel.dunbaresume.Fragments.ContactFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#9FA8DA">
+
+        <Button
+            android:id="@+id/call_button"
+            android:paddingTop="75dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/transparent"
+            android:text="Call Me"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </FrameLayout>
+
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="OR"
+        android:textSize="20dp" />
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Contact me" />
+        android:background="#9FA8DA">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/email_button"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:text="Email Me"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </FrameLayout>
+
+</LinearLayout>

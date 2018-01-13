@@ -47,6 +47,17 @@ public class ProjectsData {
         tech = new ArrayList<String>();
         tech.add("Android");
         tech.add("Java");
+        tech.add("AWS");
+        tech.add("SQL");
+        DATA.add(new ProjectItem("StudyTogether App",
+                "Selfmade",
+                "Developed an app which allows users to create groups and then finds optimal " +
+                        "meeting times based on individual user schedules.",
+                tech));
+
+        tech = new ArrayList<String>();
+        tech.add("Android");
+        tech.add("Java");
         DATA.add(new ProjectItem("Weather App",
                 "Selfmade",
                 "Created a weather app which accesses an open source database of weather data to " +

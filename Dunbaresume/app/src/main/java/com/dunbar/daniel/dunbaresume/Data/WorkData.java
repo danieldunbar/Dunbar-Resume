@@ -31,7 +31,7 @@ public class WorkData {
         description.add("Performed various PC maintenance and upgrade tasks on new and existing computers.");
         description.add("Provided manual labor (grounds and yard upkeep, moving equipment).");
         description.add("Spent time with the children (playing sports, distributing food, talking).");
-        WorkItem nph = new WorkItem("(NPH)", "Volunteer IT Support",
+        WorkItem nph = new WorkItem("Nuestros Pequeños Hermanos", "Volunteer IT Support",
                 "May 15, 2017", "May 30 2017", "San Pedro de Macorís, Dominican Republic" , description);
 
         description = new ArrayList<String>();

@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dunbar.daniel.dunbaresume.Activities.CourseActivity;
@@ -42,8 +44,10 @@ public class MainActivity extends AppCompatActivity
         ProjectFragment.OnListFragmentInteractionListener,
         SkillsFragment.OnListFragmentInteractionListener,
         CoursesFragment.OnListFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener{
+        ContactFragment.OnFragmentInteractionListener {
 
+    private String phoneNumber;
+    private String[] emailAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,10 @@ public class MainActivity extends AppCompatActivity
         HomeFragment firstFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
         setTitle("Home");
+
+        phoneNumber = "5205086429";
+        emailAddress = new String[1];
+        emailAddress[0] = "dunbardanielj@gmail.com";
     }
 
     @Override
@@ -123,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             setTitle("Contact Me");
         }
 
-        if(fragment != null) {
+        if (fragment != null) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
@@ -135,10 +143,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     @Override
     public void onListFragmentInteraction(EducationData.EducationItem item) {
@@ -209,5 +213,37 @@ public class MainActivity extends AppCompatActivity
         startChildActivityIntent.putExtra("Technology", item.getTechnology());
 
         startActivity(startChildActivityIntent);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Button button) {
+        if (button.getId() == R.id.call_button) {
+            startCallIntent();
+        } else if (button.getId() == R.id.email_button) {
+            startEmailIntent();
+        }
+    }
+
+    private void startCallIntent() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    private void startEmailIntent() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, emailAddress);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "You're so talented! Come work for us!");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
