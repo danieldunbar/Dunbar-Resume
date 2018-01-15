@@ -2,24 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.dunbar.daniel.dunbaresume.Fragments.ContactFragment">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#9FA8DA">
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="#4CAF50">
 
         <Button
             android:id="@+id/call_button"
-            android:paddingTop="75dp"
-            android:layout_marginBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:text="Call Me"
+            android:text="Tap to Call"
             android:textColor="@color/white"
             android:textSize="30dp" />
     </FrameLayout>
@@ -28,24 +27,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_margin="15dp"
         android:text="OR"
         android:textSize="20dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9FA8DA">
+        android:background="#8BC34A">
 
         <Button
             android:id="@+id/email_button"
-            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:text="Email Me"
+            android:text="Tap to Email"
             android:textColor="@color/white"
             android:textSize="30dp" />
     </FrameLayout>
