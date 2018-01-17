@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E57373"
+        android:background="#006064"
         android:orientation="horizontal">
 
         <ImageView
@@ -64,7 +64,7 @@ But I know you can't hire just any guy so here's some knowledge about me:"
         android:layout_marginTop="15dp"
         android:text="I won my fifth grade spelling bee"
         android:textSize="20dp"
-        android:textColor="#1A237E"
+        android:textColor="#00838F"
         android:textStyle="bold"/>
 
     <TextView
@@ -86,7 +86,7 @@ But I know you can't hire just any guy so here's some knowledge about me:"
         android:layout_marginTop="10dp"
         android:text="In my spare time I used Udacity to learn how to create Android apps"
         android:textSize="20dp"
-        android:textColor="#1A237E"
+        android:textColor="#00838F"
         android:textStyle="bold"/>
 
     <TextView
@@ -108,7 +108,7 @@ But I know you can't hire just any guy so here's some knowledge about me:"
         android:layout_marginTop="10dp"
         android:text="Programming to me is just solving puzzles and oh boy do I love puzzles"
         android:textSize="20dp"
-        android:textColor="#1A237E"
+        android:textColor="#00838F"
         android:textStyle="bold"/>
 
     <TextView
@@ -129,7 +129,7 @@ But I know you can't hire just any guy so here's some knowledge about me:"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="@dimen/top_margin"
-        android:text="If you still have any reservations then take a look around my app. Tap items to find out more information. Contact me with any questions. Have fun!"
+        android:text="If you still have any reservations then take a look around my app. Tap items to find out more rad information. Contact me with any questions. Nice."
         android:textSize="15dp"
         android:textColor="@android:color/black"/>
 
