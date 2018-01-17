@@ -29,7 +29,7 @@ public class CoursesData {
                 "String matching, Graph algorithms, Geometric algorithms, Approximation algorithms",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Android");
         tech.add("SQL");
         tech.add("AWS");
@@ -44,7 +44,7 @@ public class CoursesData {
                         "you an experience in developing a high quality, evolvable software product",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Java");
         DATA.add(new CourseItem("Object-Oriented Programming",
                 "This course explores object-oriented features such as inheritance and object-oriented " +
@@ -66,7 +66,7 @@ public class CoursesData {
                         "Design Patterns",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Java");
         DATA.add(new CourseItem("Analysis of Discrete Structures",
                 "Topics include trees, graphs, program verification, algorithm analysis, recurrence " +
@@ -74,7 +74,7 @@ public class CoursesData {
                         "combinatorics and elementary probability",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("Java");
         tech.add("C");
         DATA.add(new CourseItem("Parallel and Distributed Programming",
@@ -84,7 +84,7 @@ public class CoursesData {
                         "distributed systems. Programming assignments on multiple processor machines.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("SQL");
         DATA.add(new CourseItem("Databases",
                 "This is a broad coverage course which gives students a detailed examination of the " +
@@ -93,7 +93,7 @@ public class CoursesData {
                         "database design, and introduction to query optimization.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("C--");
         DATA.add(new CourseItem("Compilers",
                 "Covers the design and implementation of translator-oriented systems programs, " +
@@ -101,7 +101,7 @@ public class CoursesData {
                         "and bottom up parsing, syntax-directed code generation, and debuggers.",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("N/A");
         DATA.add(new CourseItem("Automata, Grammars, and Languages",
                 "This course is an introduction to the fundamental models of computation used " +
@@ -118,7 +118,7 @@ public class CoursesData {
                         "undecidable problems and reducibility",
                 tech));
 
-        tech.clear();
+        tech = new ArrayList<String>();
         tech.add("HTML5");
         tech.add("CSS");
         tech.add("Javascript");

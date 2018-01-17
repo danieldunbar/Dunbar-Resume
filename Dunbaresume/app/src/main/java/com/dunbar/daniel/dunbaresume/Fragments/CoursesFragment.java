@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.R;
-import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent;
-import com.dunbar.daniel.dunbaresume.Fragments.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 

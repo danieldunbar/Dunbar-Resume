@@ -14,15 +14,15 @@ public class SkillsData {
     }
 
     private static void createData(){
-        DATA.add(new SkillItem("Android Development", "Expert"));
-        DATA.add(new SkillItem("Java", "Intermediate"));
-        DATA.add(new SkillItem("C#", "Intermediate"));
-        DATA.add(new SkillItem("C", "Intermediate"));
-        DATA.add(new SkillItem("Agile Development", "Intermediate"));
-        DATA.add(new SkillItem("Github", "Intermediate"));
-        DATA.add(new SkillItem("SQL", "Beginner"));
-        DATA.add(new SkillItem("HTML5/CSS", "Beginner"));
-        DATA.add(new SkillItem("Javascript", "Beginner"));
+        DATA.add(new SkillItem("Android Development", "Great"));
+        DATA.add(new SkillItem("Java", "Great"));
+        DATA.add(new SkillItem("C#", "Good"));
+        DATA.add(new SkillItem("C", "Good"));
+        DATA.add(new SkillItem("Agile Development", "Good"));
+        DATA.add(new SkillItem("Github", "Good"));
+        DATA.add(new SkillItem("SQL", "Average"));
+        DATA.add(new SkillItem("HTML5/CSS", "Familiar"));
+        DATA.add(new SkillItem("Javascript", "Familiar"));
     }
 
     public static class SkillItem{

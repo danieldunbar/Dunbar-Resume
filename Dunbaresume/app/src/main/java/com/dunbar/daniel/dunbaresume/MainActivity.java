@@ -1,5 +1,7 @@
 package com.dunbar.daniel.dunbaresume;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,8 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dunbar.daniel.dunbaresume.Activities.CourseActivity;
+import com.dunbar.daniel.dunbaresume.Activities.EducationActivity;
+import com.dunbar.daniel.dunbaresume.Activities.ProjectActivity;
+import com.dunbar.daniel.dunbaresume.Activities.WorkActivity;
 import com.dunbar.daniel.dunbaresume.Data.CoursesData;
 import com.dunbar.daniel.dunbaresume.Data.EducationData;
 import com.dunbar.daniel.dunbaresume.Data.ProjectsData;
@@ -36,7 +44,11 @@ public class MainActivity extends AppCompatActivity
         ProjectFragment.OnListFragmentInteractionListener,
         SkillsFragment.OnListFragmentInteractionListener,
         CoursesFragment.OnListFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener{
+        ContactFragment.OnFragmentInteractionListener {
+
+    private String phoneNumber;
+    private String[] emailAddress;
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +68,11 @@ public class MainActivity extends AppCompatActivity
 
         HomeFragment firstFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
+        setTitle("Home");
+
+        phoneNumber = "5205086429";
+        emailAddress = new String[1];
+        emailAddress[0] = "dunbardanielj@gmail.com";
     }
 
     @Override
@@ -94,21 +111,28 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
+            setTitle("Home");
         } else if (id == R.id.nav_education) {
             fragment = new EducationFragment();
+            setTitle("Education");
         } else if (id == R.id.nav_work) {
             fragment = new WorkFragment();
+            setTitle("Work Experience");
         } else if (id == R.id.nav_projects) {
             fragment = new ProjectFragment();
+            setTitle("Projects");
         } else if (id == R.id.nav_skills) {
             fragment = new SkillsFragment();
+            setTitle("Skills");
         } else if (id == R.id.nav_courses) {
             fragment = new CoursesFragment();
+            setTitle("Courses");
         } else if (id == R.id.nav_contact) {
             fragment = new ContactFragment();
+            setTitle("Contact Me");
         }
 
-        if(fragment != null) {
+        if (fragment != null) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
@@ -120,33 +144,112 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+    @Override
+    public void onListFragmentInteraction(EducationData.EducationItem item) {
+        Context context = MainActivity.this;
+
+        Class destinationActivity = EducationActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("University", item.getUniversity());
+        startChildActivityIntent.putExtra("Major", item.getMajor());
+        startChildActivityIntent.putExtra("Minor", item.getMinor());
+        startChildActivityIntent.putExtra("Degree", item.getDegree());
+        startChildActivityIntent.putExtra("Graduation", item.getGraduationDate());
+        startChildActivityIntent.putExtra("GPA", Double.toString(item.getGpa()));
+
+        startActivity(startChildActivityIntent);
+    }
+
+    @Override
+    public void onListFragmentInteraction(WorkData.WorkItem item) {
+        Context context = MainActivity.this;
+
+        Class destinationActivity = WorkActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Company", item.getCompany());
+        startChildActivityIntent.putExtra("Position", item.getPosition());
+        startChildActivityIntent.putExtra("StartDate", item.getStartDate());
+        startChildActivityIntent.putExtra("EndDate", item.getEndDate());
+        startChildActivityIntent.putExtra("Location", item.getLocation());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+
+        startActivity(startChildActivityIntent);
+    }
+
+    @Override
+    public void onListFragmentInteraction(SkillsData.SkillItem item) {
+        if(mToast != null){
+            mToast.cancel();
+        }
+
+        mToast = Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT);
+        mToast.show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(CoursesData.CourseItem item) {
+        Context context = MainActivity.this;
+
+        Class destinationActivity = CourseActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Name", item.getCourseName());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+        startChildActivityIntent.putExtra("Technology", item.getTechnology());
+
+        startActivity(startChildActivityIntent);
+    }
+
+    @Override
+    public void onListFragmentInteraction(ProjectsData.ProjectItem item) {
+        Context context = MainActivity.this;
+
+        Class destinationActivity = ProjectActivity.class;
+
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        startChildActivityIntent.putExtra("Title", item.getTitle());
+        startChildActivityIntent.putExtra("Description", item.getDescription());
+        startChildActivityIntent.putExtra("Technology", item.getTechnology());
+
+        startActivity(startChildActivityIntent);
+    }
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
     }
 
     @Override
-    public void onListFragmentInteraction(EducationData.EducationItem item) {
-        Toast.makeText(this.getBaseContext(), item.getUniversity(), Toast.LENGTH_SHORT).show();
+    public void onFragmentInteraction(Button button) {
+        if (button.getId() == R.id.call_button) {
+            startCallIntent();
+        } else if (button.getId() == R.id.email_button) {
+            startEmailIntent();
+        }
     }
 
-    @Override
-    public void onListFragmentInteraction(WorkData.WorkItem item) {
-        Toast.makeText(this.getBaseContext(), item.getCompany(), Toast.LENGTH_SHORT).show();
+    private void startCallIntent() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
-    @Override
-    public void onListFragmentInteraction(SkillsData.SkillItem item) {
-        Toast.makeText(this.getBaseContext(), item.getSkill(), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onListFragmentInteraction(CoursesData.CourseItem item) {
-        Toast.makeText(this.getBaseContext(), item.getCourseName(), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onListFragmentInteraction(ProjectsData.ProjectItem item) {
-        Toast.makeText(this.getBaseContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+    private void startEmailIntent() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, emailAddress);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "You're so talented! Come work for us!");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }

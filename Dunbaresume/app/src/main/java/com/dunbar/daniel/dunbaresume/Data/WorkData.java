@@ -22,19 +22,19 @@ public class WorkData {
         description.add("Manage meetings and conduct presentations both in person and virtually.");
         description.add("Aided other interns with their projects which varied from running tests to helping code.");
         WorkItem optum = new WorkItem("Optum", "Technology Development Intern",
-                "May 28, 2016", "August 12, 2016", "Greenville, South Caroline", description);
+                "May 28, 2016", "August 12, 2016", "Greenville, South Carolina", description);
 
-        description.clear();
+        description = new ArrayList<String>();
         description.add("Provided technical support for an orphanage (250 children) during 2 week visit to the Dominican Republic.");
         description.add("Tech support included installation & configuration of Windows 10 (in Spanish) on staff and classroom computers. " +
                 "Also installed educational and administrative software on student computers.");
         description.add("Performed various PC maintenance and upgrade tasks on new and existing computers.");
         description.add("Provided manual labor (grounds and yard upkeep, moving equipment).");
         description.add("Spent time with the children (playing sports, distributing food, talking).");
-        WorkItem nph = new WorkItem("(NPH)", "Volunteer IT Support",
+        WorkItem nph = new WorkItem("Nuestros Pequeños Hermanos", "Volunteer IT Support",
                 "May 15, 2017", "May 30 2017", "San Pedro de Macorís, Dominican Republic" , description);
 
-        description.clear();
+        description = new ArrayList<String>();
         description.add("Provide periodic technical support to non-profit organization consisting of 60+ users across 4 geographical sites.");
         description.add("Created/modified web forms for their Electronic Health Records (EHR) system (Credible).");
         description.add("Networking and phone support – running Ethernet cable, RJ45/RJ11 connectors, troubleshooting network problems, 66 block punch-down.");
