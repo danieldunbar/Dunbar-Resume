@@ -1,11 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.dunbar.daniel.dunbaresume.Fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:src="@mipmap/sky_screaming" />
+            app:srcCompat="@mipmap/skyscream" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,36 +50,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/top_margin"
         android:layout_marginRight="@dimen/top_margin"
+        android:layout_marginTop="10dp"
+        android:text="I just received my degree in Computer Science and I am now looking for a job. That means I could work for you!
+But I know you can't hire just any guy so here's some knowledge about me:"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="15dp"
-        android:text="I just received my degree and I am now looking for a job. That means"
-        android:textSize="15dp"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:gravity="right"
-        android:text="I COULD WORK FOR YOU!"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
-        android:text="But I know you can't hire just any guy so here's some knowledge about me:"
-        android:textSize="15dp"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:text="I won my fifth grade spelling bee"
         android:textSize="20dp"
         android:textColor="#1A237E"
@@ -100,8 +83,53 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="50dp"
-        android:text="If that still isn't enough to convince you then take a look around my app. Tap items to find out more information. Contact me with any questions. Have fun!"
+        android:layout_marginTop="10dp"
+        android:text="In my spare time I used Udacity to learn how to create Android apps"
+        android:textSize="20dp"
+        android:textColor="#1A237E"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="What initiative"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Programming to me is just solving puzzles and oh boy do I love puzzles"
+        android:textSize="20dp"
+        android:textColor="#1A237E"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="I never get sick of it"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/top_margin"
+        android:text="If you still have any reservations then take a look around my app. Tap items to find out more information. Contact me with any questions. Have fun!"
         android:textSize="15dp"
         android:textColor="@android:color/black"/>
 
